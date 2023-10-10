@@ -1,33 +1,27 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using Microsoft.EntityFrameworkCore;
 
-namespace E_commerceFarmacia.Model
+namespace farmacia.Model
 {
     public class Produto
     {
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public long Id { get; set; }
+        public int Id { get; set; }
 
         [Column(TypeName = "varchar")]
-        [StringLength(255)]
+        [StringLength(100)]
         public string Nome { get; set; } = string.Empty;
 
         [Column(TypeName = "varchar")]
-        [StringLength(500)]
+        [StringLength(1000)]
         public string Descricao { get; set; } = string.Empty;
 
-        [Column(TypeName = "decimal(6,2)")]
+        [Column(TypeName = "decimal")]
+        [Precision(20, 2)]
         public decimal Preco { get; set; }
 
-        [Column(TypeName = "varchar")]
-        [StringLength(5000)]
-        public string Foto { get; set; } = string.Empty;
-
-        [Column(TypeName = "varchar")]
-        [StringLength(5000)]
-        public string Quantidade { get; set; } = string.Empty;
     }
 }
 

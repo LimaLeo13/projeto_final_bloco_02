@@ -1,4 +1,5 @@
-﻿using E_commerceFarmacia.Model;
+﻿
+using farmacia.Model;
 using FluentValidation;
 
 namespace E_commerceFarmacia.Validator
@@ -8,31 +9,18 @@ namespace E_commerceFarmacia.Validator
         public ProdutoValidator()
         {
             RuleFor(p => p.Nome)
-               .NotEmpty()
-               .MinimumLength(2)
-               .MaximumLength(255);
-
+                    .NotEmpty()
+                    .MinimumLength(4)
+                    .MaximumLength(100);
             RuleFor(p => p.Descricao)
-              .NotEmpty()
-              .MinimumLength(5)
-              .MaximumLength(500);
-
+                    .NotEmpty()
+                    .MinimumLength(5)
+                    .MaximumLength(1000);
             RuleFor(p => p.Preco)
-              .NotEmpty()
-              .GreaterThan(0)
-              .PrecisionScale(20, 2, false);
-
-            RuleFor(p => p.Foto)
-              .NotEmpty()
-              .MinimumLength(2)
-              .MaximumLength(5000);
-
-            RuleFor(p => p.Quantidade)
-              .NotEmpty()
-              .MaximumLength(5000);
-
-
-
+                   .NotNull()
+                   .GreaterThan(0)
+                   .PrecisionScale(20, 2, false);
         }
+
     }
 }

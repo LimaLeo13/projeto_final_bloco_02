@@ -1,4 +1,4 @@
-﻿using E_commerceFarmacia.Model;
+﻿using farmacia.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace E_commerceFarmacia.Data
@@ -9,13 +9,9 @@ namespace E_commerceFarmacia.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Categoria>().ToTable("tb_produtos");
-            modelBuilder.Entity<Categoria>().ToTable("tb_categorias");
-
+            modelBuilder.Entity<Produto>().ToTable("tb_produtos");
         }
-
-        public DbSet<Categoria> Produto { get; set; } = null!;
-        public DbSet<Categoria> Categoria { get; set; } = null!;
+        public DbSet<Produto> Produtos { get; set; } = null!;
 
     }
 }
